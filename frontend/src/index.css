@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    @apply bg-light-bg text-light-text font-body antialiased;
+    background-image:
+      radial-gradient(ellipse at 15% 0%, rgba(200,168,75,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 100%, rgba(200,168,75,0.04) 0%, transparent 55%);
+  }
+
+  html.dark body {
+    @apply bg-dark-bg text-dark-text;
+    background-image:
+      radial-gradient(ellipse at 15% 0%, rgba(200,168,75,0.05) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 100%, rgba(200,168,75,0.03) 0%, transparent 55%);
+  }
+
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track  { @apply bg-light-surface; }
+  ::-webkit-scrollbar-thumb  { @apply bg-light-muted rounded-full; }
+  html.dark ::-webkit-scrollbar-track { @apply bg-dark-surface; }
+  html.dark ::-webkit-scrollbar-thumb { @apply bg-dark-muted rounded-full; }
+
+  ::selection { background: rgba(200,168,75,0.2); color: #c8a84b; }
+}
+
+@layer components {
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2
+           bg-gold-500 text-white
+           font-body font-semibold text-sm rounded-md
+           hover:bg-gold-400 active:scale-95
+           transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2
+           bg-light-card border border-light-border text-light-text
+           dark:bg-dark-card dark:border-dark-border dark:text-dark-text
+           font-body font-medium text-sm rounded-md
+           hover:bg-light-muted dark:hover:bg-dark-muted
+           transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-1.5
+           text-light-sub dark:text-dark-sub
+           hover:bg-light-card dark:hover:bg-dark-card
+           hover:text-light-text dark:hover:text-dark-text
+           font-body text-sm rounded-md
+           transition-all duration-150;
+  }
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2
+           bg-red-500/10 text-red-400 border border-red-500/25 rounded-md
+           hover:bg-red-500/20
+           font-body font-medium text-sm
+           transition-all duration-150;
+  }
+
+  /* ── Inputs ── */
+  .input {
+    @apply w-full px-3 py-2.5 text-sm rounded-md border
+           bg-light-surface border-light-border text-light-text placeholder:text-light-dim
+           dark:bg-dark-surface dark:border-dark-border dark:text-dark-text dark:placeholder:text-dark-dim
+           focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500/15
+           transition-all duration-150;
+  }
+  .input-label {
+    @apply block text-xs font-semibold tracking-wider uppercase mb-1.5
+           text-light-sub dark:text-dark-sub;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-light-card border border-light-border
+           dark:bg-dark-card dark:border-dark-border
+           rounded-xl;
+  }
+  .card-hover {
+    @apply card cursor-pointer
+           hover:border-light-muted dark:hover:border-dark-muted
+           hover:shadow-lg transition-all duration-200;
+  }
+
+  /* ── Table ── */
+  .table-wrap { @apply w-full overflow-x-auto; }
+  .table      { @apply w-full text-sm; }
+  .table thead tr {
+    @apply border-b border-light-border dark:border-dark-border;
+  }
+  .table th {
+    @apply px-4 py-3 text-left text-xs font-semibold tracking-wider uppercase
+           text-light-dim dark:text-dark-dim;
+  }
+  .table td {
+    @apply px-4 py-3.5 text-light-text dark:text-dark-text
+           border-b border-light-border/70 dark:border-dark-border/50;
+  }
+  .table tbody tr {
+    @apply hover:bg-light-surface dark:hover:bg-dark-surface/70
+           transition-colors duration-100;
+  }
+
+  /* ── Page structure ── */
+  .page-title    { @apply font-display font-bold text-2xl tracking-tight text-light-text dark:text-white; }
+  .page-subtitle { @apply text-sm text-light-sub dark:text-dark-sub mt-0.5; }
+  .page-header   { @apply flex items-center justify-between mb-6; }
+  .section-title { @apply font-display font-semibold text-sm tracking-wider uppercase text-light-sub dark:text-dark-sub; }
+  .divider       { @apply border-t border-light-border dark:border-dark-border; }
+}
+
+/* ── Animation helpers ── */
+.opacity-0-init    { opacity: 0; }
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }

@@ -1,0 +1,12 @@
+Set-Content .gitignore "node_modules/
+.env
+.env.example
+dist/
+build/
+*.db
+__pycache__/
+*.pyc
+.DS_Store
+PSG/"
+frontend/.env
+backend/.env

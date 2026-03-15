@@ -1,0 +1,11 @@
+import api from './axios'
+export const getLocations    = ()         => api.get('/locations')
+export const createLocation  = (data)     => api.post('/locations', data)
+export const updateLocation  = (id, data) => api.put(`/locations/${id}`, data)
+export const deleteLocation  = (id)       => api.delete(`/locations/${id}`)
+export const getCategories   = ()         => api.get('/categories')
+export const createCategory  = (data)     => api.post('/categories', data)
+export const deleteCategory  = (id)       => api.delete(`/categories/${id}`)
+export const getUsers        = ()         => api.get('/users')
+export const updateUserRole  = (id, role) => api.patch(`/users/${id}/role`, { role })
+export const deleteUser      = (id)       => api.delete(`/users/${id}`)
