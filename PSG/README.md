@@ -1,3 +1,5 @@
+Watch the demo video here:
+[DEMO VIDEO](https://drive.google.com/file/d/1AuPOj19TyKIP9esq8EcG1-omV66b0Cop/view?usp=drive_link)
 # PSG Inventory Management System
 ## Patel Sports & Goods — Ahmedabad, Gujarat
 
